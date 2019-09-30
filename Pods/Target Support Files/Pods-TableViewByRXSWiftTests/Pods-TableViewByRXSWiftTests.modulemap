@@ -1,0 +1,6 @@
+framework module Pods_TableViewByRXSWiftTests {
+  umbrella header "Pods-TableViewByRXSWiftTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
