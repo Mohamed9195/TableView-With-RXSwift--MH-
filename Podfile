@@ -9,6 +9,7 @@ target 'TableViewByRXSWift' do
 
 pod 'RxSwift', '~> 5'
    pod 'RxCocoa', '~> 5'
+   pod 'IQKeyboardManagerSwift'
   target 'TableViewByRXSWiftTests' do
     inherit! :search_paths
     # Pods for testing

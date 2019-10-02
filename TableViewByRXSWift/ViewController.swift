@@ -18,6 +18,7 @@ class PersonalData {
     init(_ name: String, _ age: String) {
         self.name = name
         self.age = age
+        
     }
 }
 
@@ -35,21 +36,32 @@ class MockPersonallData {
 class ViewController: UIViewController {
 
     @IBOutlet weak var RXTable: UITableView!
+    @IBOutlet weak var addDataTextField: UITextField!
     
     var behavior = BehaviorSubject<[PersonalData]>(value:[])
     var disposed = DisposeBag()
+    let dataModel = MockPersonallData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let data = MockPersonallData()
-        data.setPersonal()
-        behavior.onNext(data.shard as! [PersonalData])
+        
+        dataModel.setPersonal()
+        behavior.onNext(dataModel.shard as! [PersonalData])
+        
+        addDataTextField.addTarget(self, action: #selector(addData), for: .editingDidEnd)
        
         RXTable.separatorStyle = .none
         setTable()
         selectCell()
         selectmodel()
+    }
+    
+    @objc private func addData() {
+        guard let newData = addDataTextField.text else {
+            return
+        }
+        try! behavior.onNext(behavior.value() + [PersonalData(newData, "87")])
     }
     
     private func setTable() {
@@ -86,6 +98,10 @@ class ViewController: UIViewController {
                 let cellTable = self.RXTable.cellForRow(at: indexPath)  as! RXTableCell
                 cellTable.RXTableLAbel.text = "Wellcom new aCCESSo"
             }).disposed(by: disposed)
+    }
+    
+    @IBAction func changeData(_ sender: UITextField) {
+        
     }
 }
 

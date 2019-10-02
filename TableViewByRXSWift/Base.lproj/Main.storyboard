@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-cd-fQi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="159" width="414" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="celll" id="P1A-LR-b2v" customClass="RXTableCell" customModule="TableViewByRXSWift" customModuleProvider="target">
@@ -46,12 +46,32 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l75-ac-xQN">
+                                <rect key="frame" x="20" y="117" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="changeData:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="hyb-dV-f2X"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Data:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlX-Fm-P0l">
+                                <rect key="frame" x="20" y="92" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.62986588480000005" blue="0.92086750269999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="l75-ac-xQN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="39Y-lV-3qk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fzc-cd-fQi" secondAttribute="bottom" id="45m-RF-Tfu"/>
+                            <constraint firstItem="Fzc-cd-fQi" firstAttribute="top" secondItem="l75-ac-xQN" secondAttribute="bottom" constant="8" id="D6I-I9-KpP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fzc-cd-fQi" secondAttribute="trailing" id="Dan-L0-Gwn"/>
-                            <constraint firstItem="Fzc-cd-fQi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ebw-t3-HaA"/>
+                            <constraint firstItem="l75-ac-xQN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KXU-ax-EKI"/>
+                            <constraint firstItem="mlX-Fm-P0l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="UVz-c5-TNf"/>
+                            <constraint firstItem="l75-ac-xQN" firstAttribute="top" secondItem="mlX-Fm-P0l" secondAttribute="bottom" constant="4" id="WrE-UI-23S"/>
+                            <constraint firstItem="mlX-Fm-P0l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mUj-wk-jVw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l75-ac-xQN" secondAttribute="trailing" constant="20" id="oLh-yc-yuB"/>
                             <constraint firstItem="Fzc-cd-fQi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q5H-QW-WDr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -59,6 +79,7 @@
                     <navigationItem key="navigationItem" title="Table" largeTitleDisplayMode="always" id="P4n-zS-fM3"/>
                     <connections>
                         <outlet property="RXTable" destination="Fzc-cd-fQi" id="mDm-Qm-18M"/>
+                        <outlet property="addDataTextField" destination="l75-ac-xQN" id="xo0-ga-n7J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
